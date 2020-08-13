@@ -16,14 +16,15 @@
                 <form id="form2" action="{{path('addCompte')}}" method="post">
                     <fieldset id="field3">
                         <legend id="legend3">Informations Compte</legend>
-                        <label for="typeCompte">Selectionner un type de compte* : </label>
-                        <select id="typeCompte" name="id_Compte" value="" onchange="testCompte()">
-                            <option value="">--Sélectionner un type de compte--</option>
-                            <option value="CESX">compte epargne simple et xeweel</option>
-                            <option value="CCS">compte courant pour les salaries</option>
-                            <option value="CB">compte bloque</option>
-                        </select>
-                        <span id="ErrorTypeCompte"></span><br />
+                            <label for="typeCompte">Selectionner un type de compte* : </label>
+                            <select id="typeCompte" name="typecompte" value="" onchange="testCompte()">
+                                <option value="">--Sélectionner un type de compte--</option>
+                                {% if typec is defined %}
+                                    {% for tc in typec %}
+                                    <option value="{{tc.id}}">{{tc.libelle}}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select><br />
                         <div id="compte">
                         <div id="fraiss">
                         <div class="form-group">
@@ -42,12 +43,24 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="client_physique_id" style="width:150px">Client</label>
+                            <label for="client_physique_id" style="width:150px">Client physique</label>
                             <select id="client_physique_id" name="clientphysique">
                              <option>--Selectionner le client--</option>
                              {% if clientp is defined %}
                                 {% for cp in clientp %}
                                 <option value="{{cp.id}}">{{cp.numCni}}</option>
+                                {% endfor %}
+                            {% endif %}
+                            </select>
+                        </div><br />
+
+                        <div class="form-group">
+                            <label for="client_physique_id" style="width:150px">Client moral</label>
+                            <select id="client_physique_id" name="clientmoral">
+                             <option>--Selectionner le client--</option>
+                             {% if clientm is defined %}
+                                {% for cm in clientm %}
+                                <option value="{{cm.id}}">{{cm.nomentreprise}}</option>
                                 {% endfor %}
                             {% endif %}
                             </select>
