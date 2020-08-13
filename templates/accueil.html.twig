@@ -1,0 +1,41 @@
+{% extends 'header.html.twig' %}
+{% block title %} Bienvenue {% endblock %}
+
+{% block body %}
+            <main>
+                <div id="text2">
+                    <h2>Ouverture de compte</h2>
+                </div>
+                <nav>
+                    <ul id="navigation">
+                        <li><a href="{{path('accueil')}}">Client</a></li>
+                        <li><a href="{{path('compte')}}">Compte</a></li>
+                    </ul>
+                </nav>
+                <br />
+                <form id="form1" method="post">
+                    <fieldset id="field1">
+                        <legend id="legend1">Choix du type de client</legend>
+                        <div id="infoClient">
+                            <div id="infoClient1">
+                               {#  <select id="TypeClient" name="TypeClient" value="" onChange="location = this.options[this.selectedIndex].value;" onchange="testClient()">
+                                    <option>--Sélectionner un type de client--</option>
+                                    <option value="test_Physique.html.twig">Client physique</option>
+                                    <option value="test_Moral.html.twig">Client moral</option>
+                                </select> #}
+                                <a href="{{path('clientPhysique')}}" class="btn btn-success mb-2">Client Physique</a>
+                                <a href="{{path('clientMoral')}}" class="btn btn-success mb-2">Client moral</a>
+                    </fieldset>
+                    <br />
+                    <br />
+                        <span id="ErrorC"></span>
+                </form>
+            </main>
+
+            <footer>
+            </footer>
+
+        </div>
+    </body>
+</html>
+{% endblock %}

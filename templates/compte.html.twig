@@ -1,0 +1,64 @@
+{% extends 'header.html.twig' %}
+{% block title %} Compte {% endblock %}
+
+{% block body %}
+       <main>
+                <div id="text2">
+                    <h2>Ouverture de compte</h2>
+                </div>
+                <nav>
+                    <ul id="navigation">
+                        <li><a href="{{path('accueil')}}">Client</a></li>
+                        <li><a href="{{path('compte')}}">Compte</a></li>
+                    </ul>
+                </nav>
+                <br />
+                <form id="form2" action="{{path('addCompte')}}" method="post">
+                    <fieldset id="field3">
+                        <legend id="legend3">Informations Compte</legend>
+                        <label for="typeCompte">Selectionner un type de compte* : </label>
+                        <select id="typeCompte" name="id_Compte" value="" onchange="testCompte()">
+                            <option value="">--Sélectionner un type de compte--</option>
+                            <option value="CESX">compte epargne simple et xeweel</option>
+                            <option value="CCS">compte courant pour les salaries</option>
+                            <option value="CB">compte bloque</option>
+                        </select>
+                        <span id="ErrorTypeCompte"></span><br />
+                        <div id="compte">
+                        <div id="fraiss">
+                        <div class="form-group">
+                            <label for="numagence" style="width:150px">Numero Agence</label>
+                            <input type="text" id="numagence" name="numeroagence" value="" placeholder="Numero Agence" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numCompte" style="width:150px">Numero Compte</label>
+                            <input type="text" id="numCompte" name="numerocompte" value="" placeholder="Numero Compte" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cleRib" style="width:150px">Cle Rib</label>
+                            <input type="text" id="cleRib" name="clerib" value="" placeholder="Cle Rib" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="client_physique_id" style="width:150px">Client</label>
+                            <select id="client_physique_id" name="client_physique_id">
+                             <option>--Selectionner le client--</option>
+                            </select>
+                        </div>
+
+                        </div>
+                        <div id="infoC">
+                        </div>
+                        </div><br />
+                    </fieldset><br />
+                    <input type="submit" name="btn" value="Valider" id="btn" />
+                </form>
+       </main>
+
+        </div>
+        <script type="text/javascript" src="{{asset('js/appCompte.js')}}"></script>
+    </body>
+</html>
+{% endblock %}

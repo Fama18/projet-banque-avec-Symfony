@@ -1,0 +1,47 @@
+{% extends 'header.html.twig' %}
+{% block title %} Client Moral {% endblock %}
+
+{% block body %}
+    <main>
+                <div id="text2">
+                    <h2>Ouverture de compte</h2>
+                </div>
+                <nav>
+                    <ul id="navigation">
+                        <li><a href="{{path('accueil')}}">Client</a></li>
+                        <li><a href="{{path('compte')}}">Compte</a></li>
+                    </ul>
+                </nav>
+                <br />
+                <form id="form_Moral" method="post" action="{{path('addMoral')}}">
+                    <fieldset id="field2">
+                        <legend id="legend2">Informations Supplémentaires</legend>
+                                      <div id="infoSupp">
+                                          <div id="infoSupp1">
+                                              <label for="nomEmployeur" id="labE">Nom Entreprise* : </label>
+                                              <input type="text" id="nomEmployeur" name="nomentreprise" value="" placeholder="Nom de votre Employeur" />
+                                              <span id="ErrorEmployeur"></span>
+                                              <label for="AdresseEmployeur" id="labAdr">Adresse Entreprise* : </label>
+                                              <input type="text" id="AdresseEmployeur" name="adresseentreprise" value="" placeholder="Adresse Employeur" />
+                                              <span id="ErrorAdrEmployeur"></span>
+                                          </div>
+                                          <div id="infoSupp2">
+                                              <label for="raisonSocial" id="labRai">Raison sociale* : </label>
+                                              <input type="text" id="raisonSocial" name="raisonsocial" value="" placeholder="Raison Sociale" />
+                                              <span id="ErrorRaisonSocial"></span>
+                                              <label for="numIdent" id="labNd">Numéro d'identification* : </label>
+                                              <input type="text" id="numIdent" name="numident" value="" placeholder="Numéro d'identification" />
+                                              <span id="ErrorNumIdent"></span>
+                                          </div>
+                                      </div>
+                    </fieldset>
+                    <br />
+                        <input type="submit" name="btn22" value="Valider" id="btn2" /><br />
+                        <span id="ErrorC"></span>
+                </form>
+    </main>
+        </div>
+        <script type="text/javascript" src="{{asset('js/app2.js')}}"></script>
+    </body>
+</html>
+{% endblock %}
