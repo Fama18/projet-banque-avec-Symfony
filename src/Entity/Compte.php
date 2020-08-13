@@ -18,21 +18,6 @@ class Compte
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ClientPhysique::class, inversedBy="comptes")
-     */
-    private $clientPhysique;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=ClientMoral::class, inversedBy="comptes")
-     */
-    private $clientMoral;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=TypeCompte::class, inversedBy="comptes")
-     */
-    private $typeCompte;
-
-    /**
      * @ORM\Column(type="string", length=30)
      */
     private $numeroagence;
@@ -47,45 +32,25 @@ class Compte
      */
     private $clerib;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ClientPhysique::class, inversedBy="comptes")
+     */
+    private $clientphysique;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ClientMoral::class, inversedBy="comptes")
+     */
+    private $clientmoral;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeCompte::class, inversedBy="comptes")
+     */
+    private $typecompte;
+
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getClientPhysique(): ?ClientPhysique
-    {
-        return $this->clientPhysique;
-    }
-
-    public function setClientPhysique(?ClientPhysique $clientPhysique): self
-    {
-        $this->clientPhysique = $clientPhysique;
-
-        return $this;
-    }
-
-    public function getClientMoral(): ?ClientMoral
-    {
-        return $this->clientMoral;
-    }
-
-    public function setClientMoral(?ClientMoral $clientMoral): self
-    {
-        $this->clientMoral = $clientMoral;
-
-        return $this;
-    }
-
-    public function getTypeCompte(): ?TypeCompte
-    {
-        return $this->typeCompte;
-    }
-
-    public function setTypeCompte(?TypeCompte $typeCompte): self
-    {
-        $this->typeCompte = $typeCompte;
-
-        return $this;
     }
 
     public function getNumeroagence(): ?string
@@ -123,4 +88,41 @@ class Compte
 
         return $this;
     }
+
+    public function getClientphysique(): ?ClientPhysique
+    {
+        return $this->clientphysique;
+    }
+
+    public function setClientphysique(?ClientPhysique $clientphysique): self
+    {
+        $this->clientphysique = $clientphysique;
+
+        return $this;
+    }
+
+    public function getClientmoral(): ?ClientMoral
+    {
+        return $this->clientmoral;
+    }
+
+    public function setClientmoral(?ClientMoral $clientmoral): self
+    {
+        $this->clientmoral = $clientmoral;
+
+        return $this;
+    }
+
+    public function getTypecompte(): ?TypeCompte
+    {
+        return $this->typecompte;
+    }
+
+    public function setTypecompte(?TypeCompte $typecompte): self
+    {
+        $this->typecompte = $typecompte;
+
+        return $this;
+    }
+
 }

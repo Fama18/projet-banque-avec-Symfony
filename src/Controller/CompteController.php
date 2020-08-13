@@ -17,17 +17,19 @@ class CompteController extends AbstractController
 
             if(isset($btn)) {
                 $em = $this->getDoctrine()->getManager();
+                /* var_dump($data);
+                die(); */
                 $Compte = new Compte();
 
                 $Compte->setNumeroagence($numeroagence);
                 $Compte->setNumerocompte($numerocompte);
                 $Compte->setClerib($clerib);
-                $Compte->setClientPhysique($clientPhysique);
+                $Compte->setClientphysique($clientphysique);
 
                 $em->persist($Compte);
                 $em->flush();
 
-                return $this->render('compte.html.twig');
+                return $this->render('compte.html.twig', $data);
             }
     }
 

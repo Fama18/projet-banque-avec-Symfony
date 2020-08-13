@@ -43,8 +43,13 @@
 
                         <div class="form-group">
                             <label for="client_physique_id" style="width:150px">Client</label>
-                            <select id="client_physique_id" name="client_physique_id">
+                            <select id="client_physique_id" name="clientphysique">
                              <option>--Selectionner le client--</option>
+                             {% if clientp is defined %}
+                                {% for cp in clientp %}
+                                <option value="{{cp.id}}">{{cp.numCni}}</option>
+                                {% endfor %}
+                            {% endif %}
                             </select>
                         </div>
 

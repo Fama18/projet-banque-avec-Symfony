@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\ClientPhysique;
 
 class LoginController extends AbstractController
 {
@@ -47,6 +48,8 @@ class LoginController extends AbstractController
      */
     public function compte()
     {
-        return $this->render('compte.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $data['clientp'] = $em->getRepository(ClientPhysique::class)->findAll();
+        return $this->render('compte.html.twig', $data);
     }
 }

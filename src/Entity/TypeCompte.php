@@ -25,9 +25,10 @@ class TypeCompte
     private $libelle;
 
     /**
-     * @ORM\OneToMany(targetEntity=Compte::class, mappedBy="typeCompte")
+     * @ORM\OneToMany(targetEntity=Compte::class, mappedBy="typecompte")
      */
     private $comptes;
+
 
     public function __construct()
     {
@@ -63,7 +64,7 @@ class TypeCompte
     {
         if (!$this->comptes->contains($compte)) {
             $this->comptes[] = $compte;
-            $compte->setTypeCompte($this);
+            $compte->setTypecompte($this);
         }
 
         return $this;
@@ -74,8 +75,8 @@ class TypeCompte
         if ($this->comptes->contains($compte)) {
             $this->comptes->removeElement($compte);
             // set the owning side to null (unless already changed)
-            if ($compte->getTypeCompte() === $this) {
-                $compte->setTypeCompte(null);
+            if ($compte->getTypecompte() === $this) {
+                $compte->setTypecompte(null);
             }
         }
 

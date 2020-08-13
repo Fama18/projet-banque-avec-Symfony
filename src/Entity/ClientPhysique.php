@@ -55,19 +55,14 @@ class ClientPhysique
     private $telephone;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ClientMoral::class, inversedBy="clientphysiques")
-     */
-    private $clientMoral;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Compte::class, mappedBy="clientPhysique")
-     */
-    private $comptes;
-
-    /**
      * @ORM\Column(type="string", length=25)
      */
     private $datenaissance;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Compte::class, mappedBy="clientphysique")
+     */
+    private $comptes;
 
     public function __construct()
     {
@@ -163,14 +158,14 @@ class ClientPhysique
         return $this;
     }
 
-    public function getClientMoral(): ?ClientMoral
+    public function getDatenaissance(): ?string
     {
-        return $this->clientMoral;
+        return $this->datenaissance;
     }
 
-    public function setClientMoral(?ClientMoral $clientMoral): self
+    public function setDatenaissance(string $datenaissance): self
     {
-        $this->clientMoral = $clientMoral;
+        $this->datenaissance = $datenaissance;
 
         return $this;
     }
@@ -187,7 +182,7 @@ class ClientPhysique
     {
         if (!$this->comptes->contains($compte)) {
             $this->comptes[] = $compte;
-            $compte->setClientPhysique($this);
+            $compte->setClientphysique($this);
         }
 
         return $this;
@@ -198,23 +193,12 @@ class ClientPhysique
         if ($this->comptes->contains($compte)) {
             $this->comptes->removeElement($compte);
             // set the owning side to null (unless already changed)
-            if ($compte->getClientPhysique() === $this) {
-                $compte->setClientPhysique(null);
+            if ($compte->getClientphysique() === $this) {
+                $compte->setClientphysique(null);
             }
         }
 
         return $this;
     }
 
-    public function getDatenaissance(): ?string
-    {
-        return $this->datenaissance;
-    }
-
-    public function setDatenaissance(string $datenaissance): self
-    {
-        $this->datenaissance = $datenaissance;
-
-        return $this;
-    }
 }
