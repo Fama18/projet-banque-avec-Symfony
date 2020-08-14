@@ -7,6 +7,16 @@ body {
     margin-left: 5%;
     margin-right: 5%;
 }
+td, tr {
+    background-color:white;
+}
+table{
+    margin-top:25px;
+}
+#test {
+    width: 900px;
+    margin-left:180px;
+}
 header {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,35 @@
+{% extends 'header.html.twig' %}
+{% block title %} Client Moral {% endblock %}
+
+{% block body %}
+      <div class="row mt-3" id="test">
+            <table class="table table-bordered" id="users">
+
+            <thead>
+                <tr>
+                    <th>Id Client Moral</th>
+                    <th>nom Entreprise</th>
+                    <th>Adresse Entreprise</th>
+                    <th>Raison Social</th>
+                    <th>num Ident</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for ls in listC %}
+                <tr>
+                    <td>{{ls.id}}</td>
+                    <td>{{ls.nomentreprise}}</td>
+                    <td>{{ls.adresseentreprise}}</td>
+                    <td>{{ls.raisonsocial}}</td>
+                    <td>{{ls.numident}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+            </table>
+      </div>
+        </div>
+  </body>
+</html>
+{% endblock %}

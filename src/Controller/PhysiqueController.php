@@ -34,5 +34,15 @@ class PhysiqueController extends AbstractController
                 return $this->render('clientPhysique.html.twig');
             }
     }
+    /**
+     * @Route("/ListPhysique", name="ListPhysique")
+     */
+    public function ListPhysique()
+    {
+                $em = $this->getDoctrine()->getManager();
+                $data['listPh'] = $em->getRepository(ClientPhysique::class)->findAll();
+
+                return $this->render('listPhysique.html.twig', $data);
+    }
 
 }

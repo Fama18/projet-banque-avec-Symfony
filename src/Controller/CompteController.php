@@ -47,5 +47,15 @@ class CompteController extends AbstractController
                 return $this->render('compte.html.twig', $data);
             }
     }
+    /**
+     * @Route("/ListCompte", name="ListCompte")
+     */
+    public function ListCompte()
+    {
+                $em = $this->getDoctrine()->getManager();
+                $data['listCmp'] = $em->getRepository(Compte::class)->findAll();
+
+                return $this->render('listCompte.html.twig', $data);
+    }
 
 }

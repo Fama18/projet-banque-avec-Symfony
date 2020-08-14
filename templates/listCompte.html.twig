@@ -1,0 +1,39 @@
+{% extends 'header.html.twig' %}
+{% block title %} Compte {% endblock %}
+
+{% block body %}
+      <div class="row mt-3" id="test">
+            <table class="table table-bordered" id="users">
+
+            <thead>
+                <tr>
+                    <th>Id Compte</th>
+                    <th>Numero Agence</th>
+                    <th>Numero Compte</th>
+                    <th>Cle Rib</th>
+                    <th>Client Physique</th>
+                    <th>Client Moral</th>
+                    <th>Type du compte</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for lcp in listCmp %}
+                <tr>
+                    <td>{{lcp.id}}</td>
+                    <td>{{lcp.numeroagence}}</td>
+                    <td>{{lcp.numerocompte}}</td>
+                    <td>{{lcp.clerib}}</td>
+                    {# <td>{{lcp.clientphysique}}</td>
+                    <td>{{lcp.clientmoral}}</td>
+                    <td>{{lcp.typecompte}}</td> #}
+                </tr>
+            {% endfor %}
+            </tbody>
+
+            </table>
+      </div>
+        </div>
+  </body>
+</html>
+{% endblock %}

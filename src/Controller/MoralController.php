@@ -30,5 +30,15 @@ class MoralController extends AbstractController
                 return $this->render('clientMoral.html.twig');
             }
     }
+    /**
+     * @Route("/ListMoral", name="ListMoral")
+     */
+    public function ListMoral()
+    {
+                $em = $this->getDoctrine()->getManager();
+                $data['listC'] = $em->getRepository(ClientMoral::class)->findAll();
+
+                return $this->render('listMoral.html.twig', $data);
+    }
 
 }
