@@ -2,43 +2,46 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\ClientMoral;
+use App\Form\ClientMoralType;
+use App\Repository\ClientMoralRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 class MoralController extends AbstractController
 {
     /**
-     * @Route("/addMoral", name="addMoral")
-     */
-    public function addMoral()
+    * @Route("/clientMoral", name="addMoral")
+    */
+    public function new(Request $request): Response
     {
-        extract($_POST);
-
-            if(isset($btn22)) {
-                $em = $this->getDoctrine()->getManager();
-                $ClientMoral = new ClientMoral();
-
-                $ClientMoral->setNomentreprise($nomentreprise);
-                $ClientMoral->setAdresseentreprise($adresseentreprise);
-                $ClientMoral->setRaisonsocial($raisonsocial);
-                $ClientMoral->setNumident($numident);
-
-                $em->persist($ClientMoral);
-                $em->flush();
-
-                return $this->render('clientMoral.html.twig');
-            }
+        $ClientMoral = new ClientMoral();
+        $form = $this->createForm(ClientMoralType::class, $ClientMoral);
+        // traitement du formulaire
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ClientMoral);
+            $em->flush();
+            return $this->redirectToRoute('addMoral');
+        }
+        return $this->render('moral/clientMoral.html.twig', [
+            "form" => $form->createView()
+        ]);
     }
     /**
-     * @Route("/ListMoral", name="ListMoral")
+     * @Route("/ListMoral", name="ListMorals")
      */
-    public function ListMoral()
+    public function ListMoral(ClientMoralRepository $repository)
     {
-                $em = $this->getDoctrine()->getManager();
-                $data['listC'] = $em->getRepository(ClientMoral::class)->findAll();
+            $ClientMorals = $repository->findAll();
 
-                return $this->render('listMoral.html.twig', $data);
+            return $this->render('moral/listMoral.html.twig', [
+                "ClientMorals" => $ClientMorals,
+            ]);
     }
 
 }

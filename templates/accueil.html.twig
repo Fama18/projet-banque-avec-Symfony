@@ -1,41 +1,37 @@
-{% extends 'header.html.twig' %}
-{% block title %} Bienvenue {% endblock %}
+{% extends 'base.html.twig' %}
+{# {% block title %} Bienvenue {% endblock %} #}
 
 {% block body %}
-            <main>
-                <div id="text2">
-                    <h2>Ouverture de compte</h2>
-                </div>
-                <nav>
-                    <ul id="navigation">
-                        <li><a href="{{path('accueil')}}">Client</a></li>
-                        <li><a href="{{path('compte')}}">Compte</a></li>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarText" style="background-color:skyblue;width:900px;height:80px">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{path('accueil')}}">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('addMoral')}}">Create Client moral</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('addPhysique')}}">Create Client physiques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('addCompte')}}">Create Compte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('ListMorals')}}">Liste Clients morals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Liste Clients physiques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Liste Comptes</a>
+                        </li>
                     </ul>
-                </nav>
-                <br />
-                <form id="form1" method="post">
-                    <fieldset id="field1">
-                        <legend id="legend1">Choix du type de client</legend>
-                        <div id="infoClient">
-                            <div id="infoClient1">
-                               {#  <select id="TypeClient" name="TypeClient" value="" onChange="location = this.options[this.selectedIndex].value;" onchange="testClient()">
-                                    <option>--Sélectionner un type de client--</option>
-                                    <option value="test_Physique.html.twig">Client physique</option>
-                                    <option value="test_Moral.html.twig">Client moral</option>
-                                </select> #}
-                                <a href="{{path('clientPhysique')}}" class="btn btn-success mb-2">Client Physique</a>
-                                <a href="{{path('clientMoral')}}" class="btn btn-success mb-2">Client moral</a>
-                    </fieldset>
-                    <br />
-                    <br />
-                        <span id="ErrorC"></span>
-                </form>
-            </main>
-
-            <footer>
-            </footer>
-
-        </div>
-    </body>
-</html>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        {% block ajout %}{% endblock %}
 {% endblock %}

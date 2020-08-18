@@ -1,0 +1,45 @@
+{% extends 'header.html.twig' %}
+{% block title %} Client physique {% endblock %}
+
+{% block body %}
+    
+      <div class="row mt-3" id="test">
+            <table class="table table-bordered" id="users">
+
+            <thead>
+                <tr>
+                    <th>Id Client physique</th>
+                    <th>Numero CNI</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Civilite</th>
+                    <th>Adresse</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Date de naissance</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for lp in listPh %}
+                <tr>
+                    <td>{{lp.id}}</td>
+                    <td>{{lp.numCni}}</td>
+                    <td>{{lp.nom}}</td>
+                    <td>{{lp.prenom}}</td>
+                    <td>{{lp.civilite}}</td>
+                    <td>{{lp.adresse}}</td>
+                    <td>{{lp.email}}</td>
+                    <td>{{lp.telephone}}</td>
+                    <td>{{lp.datenaissance}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+            </table>
+      </div>
+    
+        </div>
+  </body>
+</html>
+{% endblock %}

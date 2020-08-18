@@ -24,24 +24,11 @@ class LoginController extends AbstractController
     {
         return $this->redirectToRoute('index');
     }
-    /**
-     * @Route("/clientPhysique", name="clientPhysique")
-     */
-    public function clientPhysique()
-    {
-        return $this->render('clientPhysique.html.twig');
-    }
-    /**
-     * @Route("/clientMoral", name="clientMoral")
-     */
-    public function clientMoral()
-    {
-        return $this->render('clientMoral.html.twig');
-    }
+
     /**
      * @Route("/accueil", name="accueil")
      */
-    public function client()
+    public function accueil()
     {
         return $this->render('accueil.html.twig');
     }

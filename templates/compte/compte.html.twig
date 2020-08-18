@@ -1,0 +1,48 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %} Compte {% endblock %}
+
+{% block ajout %}
+    <div class="col-md-6 offset-md-3 mt-5">
+        <div class="card">
+            <h4 class="card-header text-center">Compte</h4>
+            <div class="card-body">
+
+                    {{ form_start(form) }}
+
+                        <div class="form-group">
+                        {{ form_label(form.typecompte)}}
+                        {{ form_widget(form.typecompte)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.numeroagence)}}
+                        {{ form_widget(form.numeroagence)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.numerocompte)}}
+                        {{ form_widget(form.numerocompte)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.clerib)}}
+                        {{ form_widget(form.clerib)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.clientphysique)}}
+                        {{ form_widget(form.clientphysique)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.clientmoral)}}
+                        {{ form_widget(form.clientmoral)}}
+                        </div>
+
+                        <button class="btn btn-success col-md-4 offset-md-4">Envoyer</button>
+                    {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

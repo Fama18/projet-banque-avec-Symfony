@@ -1,0 +1,58 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %} Client Physique {% endblock %}
+
+{% block ajout %}
+    <div class="col-md-6 offset-md-3 mt-5">
+        <div class="card">
+            <h4 class="card-header text-center">Client Physique</h4>
+            <div class="card-body">
+
+                    {{ form_start(form) }}
+
+                        <div class="form-group">
+                        {{ form_label(form.numCni)}}
+                        {{ form_widget(form.numCni)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.nom)}}
+                        {{ form_widget(form.nom)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.prenom)}}
+                        {{ form_widget(form.prenom)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.civilite)}}
+                        {{ form_widget(form.civilite)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.datenaissance)}}
+                        {{ form_widget(form.datenaissance)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.adresse)}}
+                        {{ form_widget(form.adresse)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.email)}}
+                        {{ form_widget(form.email)}}
+                        </div>
+
+                        <div class="form-group">
+                        {{ form_label(form.telephone)}}
+                        {{ form_widget(form.telephone)}}
+                        </div>
+
+                        <button class="btn btn-success col-md-4 offset-md-4">Envoyer</button>
+                    {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
